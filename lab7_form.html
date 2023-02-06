@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>form</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <style>
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+    </style>
+  </head>
+  <body id="body">
+    <div
+      class="container col-md-5 col-md-offset-5 justify-content-center centered"
+    >
+      <form class="p-4" style="background-color: #cdd3c4">
+        <div class="row" id="form1"></div>
+        <div class row="form-group">
+          <label for="exampleInputEmail1">Username</label>
+          <input class="form-control" id="username" placeholder="Username" />
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Password"
+          />
+        </div>
+        <!-- <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1"
+            >Check me out</label
+          >
+        </div> -->
+        <button
+          class="rounded-3"
+          type="submit"
+          id="submit_button"
+          onclick="answer()"
+        >
+          LOGIN
+        </button>
+      </form>
+    </div>
+
+    <script>
+      var username = document.getElementById("username");
+      var password = document.getElementById("password");
+
+      function answer() {
+        if (username.value == "admin" && password.value == "123")
+          alert("Welcome admin");
+        else alert("not registered");
+      }
+
+      document.getElementsByTagName("body");
+      document.getElementById("body").style.backgroundColor = "#4a6f33";
+      var btn = document.getElementById("submit_button");
+      btn.style.backgroundColor = "#91e060";
+      btn.style.border = "#91e060";
+      btn.style.marginTop = "20px";
+      btn.style.minWidth = "330px";
+
+      
+      username.style.backgroundColor = "gray";
+      password.style.backgroundColor = "gray";
+
+</script>
+  </body>
+</html>
