@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        background-color: rgb(60, 144, 103);
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 400px;
+        margin: auto;
+        min-height: 100vh;
+      }
+      input,
+      button {
+        padding: 20px;
+        border: 1px solid #999;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        background-color: #eee;
+        font-size: 18px;
+      }
+      button {
+        background-color: #28643c;
+        cursor: pointer;
+      }
+      .error-msg,
+      .error-msg2 {
+        color: #f00;
+        margin: 0 0 10px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input
+        type="text"
+        required
+        autocomplete="off"
+        placeholder="Username"
+        name="username"
+        id="username"
+      />
+      <p class="error-msg">Please enter a valid userName!</p>
+      <input
+        type="password"
+        placeholder="password"
+        required
+        id="password"
+        name="password"
+      />
+      <p class="error-msg2">Please enter a valid password!</p>
+      <button type="submit" id="btn">login</button>
+    </div>
+
+    <script>
+      const name = document.getElementById("username");
+      const errorMsg = document.querySelector(".error-msg");
+
+      const email_regExp = /^[a-zA-Z\s]+$/;
+      name.addEventListener("input", function (e) {
+        const isValid = email_regExp.test(e.target.value);
+        if (isValid) {
+          errorMsg.style.display = "none";
+        } else {
+          errorMsg.style.display = "block";
+        }
+      });
+
+      const password = document.getElementById("password");
+      const password_errorMsg = document.querySelector(".error-msg2");
+
+      const password_regExp = /^[\w]{8,}$/;
+      password.addEventListener("input", function (e) {
+        const isValid2 = password_regExp.test(e.target.value);
+        if (isValid2) {
+          password_errorMsg.style.display = "none";
+        } else {
+          password_errorMsg.style.display = "block";
+        }
+      });
+
+      var btn = document.getElementById("btn");
+      console.log(btn);
+      btn.addEventListener("click", function () {
+        var name = document.getElementById("username").value;
+        localStorage.setItem("username", name);
+        location.href = "file:///C:/js/html&css/lab3part2.html";
+      });
+    </script>
+  </body>
+</html>

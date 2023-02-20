@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Data about users</h1>
+    <p></p>
+    <script>
+      let url = "https://reqres.in/api/users?page=2";
+
+      fetch(url)
+        .then((result) => {
+          console.log(result);
+          let mydata = result.json();
+          console.log(mydata);
+          return mydata;
+        })
+        .then((myData) => {
+          for (let i = 0; i < myData.data.length; i++) {
+            let mail = document.createElement("h3");
+            mail.innerHTML = "email : " + myData.data[i].email;
+            document.body.appendChild(mail);
+
+            const avatar = document.createElement("img");
+            avatar.src = myData.data[i].avatar;
+            document.body.appendChild(avatar);
+          }
+        });
+    </script>
+  </body>
+</html>
